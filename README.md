@@ -1,31 +1,22 @@
 # Save the Princess
 
+[![Stories in Ready](https://badge.waffle.io/marcoafilho/save-the-princess.svg?label=ready&title=ready)](http://waffle.io/marcoafilho/save-the-princess)
 [![Build Status](https://travis-ci.org/marcoafilho/save-the-princess.svg?branch=master)](https://travis-ci.org/marcoafilho/save-the-princess)
 [![Code Climate](https://codeclimate.com/github/marcoafilho/save-the-princess/badges/gpa.svg)](https://codeclimate.com/github/marcoafilho/save-the-princess)
+[![Dependency Status](https://gemnasium.com/marcoafilho/save-the-princess.svg)](https://gemnasium.com/marcoafilho/save-the-princess)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Save the Princess is a browser game that allows players to create worlds and
+also dive into them. The rules used here are based on the simple [3D&T][3d&t] role-playing game.
 
-Things you may want to cover:
+## Getting started
 
-* Ruby version
+After cloning the repo, go to the project's root folder and run:
 
-* System dependencies
+```shell
+rake db:setup
+rails s
+```
 
-* Configuration
+After that you can access http://localhost:3000 and enjoy the game.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+[3d&t]: https://en.wikipedia.org/wiki/3D%26T
