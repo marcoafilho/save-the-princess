@@ -1,4 +1,7 @@
-== README
+# Save the Princess
+
+[![Build Status](https://travis-ci.org/marcoafilho/save-the-princess.svg?branch=master)](https://travis-ci.org/marcoafilho/save-the-princess)
+[![Code Climate](https://codeclimate.com/github/marcoafilho/save-the-princess/badges/gpa.svg)](https://codeclimate.com/github/marcoafilho/save-the-princess)
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
