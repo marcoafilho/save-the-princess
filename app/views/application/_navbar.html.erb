@@ -1,5 +1,5 @@
 <div class="ui secondary pointing menu">
-  <%= link_to root_path, class: ['item', ('active' if current_page?(root_path))] do %>
+  <%= link_to root_path, class: ['item', ('active' if current_page?(root_path) || (controller_name == 'users' && action_name == 'create'))] do %>
     <i class="big game icon"></i>
     <%= t('.home') %>
   <% end %>
