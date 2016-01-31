@@ -9,6 +9,18 @@
 <body>
   <%= render 'navbar' %>
 
+  <% if flash.any? && flash[:notice] %>
+    <div id="flash" class="ui centered grid container">
+      <div class="doubling one column row">
+        <div class="colum">
+          <div class="ui positive message">
+            <%= flash[:notice] %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
   <%= yield %>
 </body>
 </html>

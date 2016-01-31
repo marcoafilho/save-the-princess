@@ -3,5 +3,6 @@ class PagesController < ApplicationController
   end
 
   def home
+    @user = User.new
   end
 end
