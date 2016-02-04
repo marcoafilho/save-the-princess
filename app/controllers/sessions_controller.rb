@@ -6,8 +6,13 @@ class SessionsController < ApplicationController
       redirect_to root_url, notice: 'Successfully logged in'
     else
       @user = User.new
-      flash.now.alert = 'Invalid e-mail or password'
+      @session_errors = ['Invalid password or e-mail']
       render 'pages/home'
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to root_path
   end
 end
