@@ -1,3 +1,4 @@
+# `User` handles the user profile and the user authentication
 class User < ActiveRecord::Base
   has_secure_password
 

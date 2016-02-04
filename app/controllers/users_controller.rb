@@ -1,3 +1,4 @@
+# `UsersController` handles the creation of users.
 class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
