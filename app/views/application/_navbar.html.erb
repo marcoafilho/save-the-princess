@@ -1,8 +1,1 @@
-<div class="ui secondary pointing menu">
-  <%= link_to root_path, class: ['item', ('active' if current_page?(root_path) || (controller_name == 'users' && action_name == 'create'))] do %>
-    <i class="big game icon"></i>
-    <%= t('.home') %>
-  <% end %>
-
-  <%= link_to t('.about'), about_path, class: ['item', ('active' if current_page?(about_path))] %>
-</div>
+<%= render(current_user ? 'authenticated_navbar' : 'unauthenticated_navbar') %>

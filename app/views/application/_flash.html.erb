@@ -1,0 +1,11 @@
+<% flash.each do |key, message| %>
+  <div id="flash" class="ui centered grid container">
+    <div class="doubling one column row">
+      <div class="column">
+        <%= content_tag :div, class: ['ui', flash_class(key), 'message'] do %>
+          <%= message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

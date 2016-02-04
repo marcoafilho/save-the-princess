@@ -21,6 +21,6 @@
 
 en:
   application:
-    navbar:
+    unauthenticated_navbar:
       about: 'About'
       home: 'Home'

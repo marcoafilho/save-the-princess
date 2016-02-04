@@ -9,29 +9,7 @@
 <body>
   <%= render 'navbar' %>
 
-  <% if flash.any? && flash[:notice] %>
-    <div id="flash" class="ui centered grid container">
-      <div class="doubling one column row">
-        <div class="column">
-          <div class="ui positive message">
-            <%= flash[:notice] %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-  <% if flash.any? && flash[:alert] %>
-    <div id="flash" class="ui centered grid container">
-      <div class="doubling one column row">
-        <div class="column">
-          <div class="ui negative message">
-            <%= flash[:alert] %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-
+  <%= render 'flash' %>
 
   <%= yield %>
 </body>
