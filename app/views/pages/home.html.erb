@@ -20,21 +20,21 @@
 
     <div class="column">
       <div class="ui segment">
-        <form action="" class="ui form">
+        <%= form_tag sessions_path, class: 'ui form' do |f| %>
           <div class="field">
-            <input type="text" placeholder="E-mail">
+            <%= email_field_tag :email, params[:email], placeholder: 'E-mail' %>
           </div>
 
           <div class="fields">
             <div class="twelve wide field">
-              <input type="password" placeholder="Password">
+              <%= password_field_tag :password, nil, placeholder: 'Password' %>
             </div>
 
             <div class="four wide field">
               <button class="ui fluid blue button">Sign in</button>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
 
       <div class="ui clearing segment">
