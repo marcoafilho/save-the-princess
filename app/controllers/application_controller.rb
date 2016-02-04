@@ -1,3 +1,5 @@
+# ApplicationController is the super class that handles the requests in an
+# application level.
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 

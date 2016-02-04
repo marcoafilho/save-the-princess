@@ -1,3 +1,10 @@
 engines:
   rubocop:
-    enabled: false
+    enabled: true
+    checks:
+      Rubocop/Syntax:
+        enabled: false
+  eslint:
+    enabled: true
+  csslint:
+    enabled: true

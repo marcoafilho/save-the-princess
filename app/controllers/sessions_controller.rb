@@ -1,3 +1,4 @@
+# `SessionsController` handles the authentication of a user.
 class SessionsController < ApplicationController
   def create
     user = User.find_by(email: params[:email])

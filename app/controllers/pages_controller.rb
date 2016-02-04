@@ -1,3 +1,4 @@
+# `PagesController` handles the static pages
 class PagesController < ApplicationController
   def about
   end

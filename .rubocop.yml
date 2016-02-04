@@ -1,0 +1,8 @@
+AllCops:
+  Exclude:
+    - 'config/application.rb'
+    - 'db/**/*'
+    - 'bin/**/*'
+  TargetRubyVersion: 2.3
+Metrics/LineLength:
+  Max: 120
