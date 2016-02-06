@@ -1,0 +1,8 @@
+<div class="ui container grid">
+  <div class="row">
+    <div class="one column">
+      <%= @world.name %>
+      <%= link_to 'New location', new_location_path(world_id: @world.id), class: 'ui green button' %>
+    </div>
+  </div>
+</div>

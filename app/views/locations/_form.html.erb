@@ -1,0 +1,31 @@
+<%= form_for @location, html: { class: ['ui', 'form', ('error' if @location.errors.any?)] } do |f| %>
+  <%= f.hidden_field :world_id %>
+
+  <%= content_tag :div, class: ['field', ('error' if @location.errors[:name].any?)] do %>
+    <%= f.text_field :name, placeholder: 'Name' %>
+  <% end %>
+
+  <%= content_tag :div, class: ['field', ('error' if @location.errors[:latitude].any?)] do %>
+    <%= f.text_field :latitude, placeholder: 'Latitude' %>
+  <% end %>
+
+  <%= content_tag :div, class: ['field', ('error' if @location.errors[:longitude].any?)] do %>
+    <%= f.text_field :longitude, placeholder: 'Longitude' %>
+  <% end %>
+
+  <%= content_tag :div, class: ['field', ('error' if @location.errors[:description].any?)] do %>
+    <%= f.text_area :description, placeholder: 'Description' %>
+  <% end %>
+
+  <% if @location.errors.any? %>
+    <div class="ui error message">
+      <ul class="list">
+        <% @location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.submit class: 'ui right floated green button' %>
+<% end %>

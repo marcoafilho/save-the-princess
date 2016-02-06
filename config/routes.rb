@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
+  resources :locations, only: [:new, :create]
   resources :sessions, only: [:create, :destroy]
   resources :users, only: :create
-  resources :worlds, only: [:new, :create]
+  resources :worlds, only: [:show, :new, :create]
 
   get 'about', to: 'pages#about'
 
