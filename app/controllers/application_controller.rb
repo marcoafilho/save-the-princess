@@ -7,4 +7,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(id: session[:user_id])
   end
   helper_method :current_user
+
+  def authorize_user
+    return if current_user.present?
+    redirect_to root_path, alert: 'Must be logged in to access this feature'
+  end
 end
