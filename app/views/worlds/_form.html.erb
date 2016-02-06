@@ -1,0 +1,21 @@
+<%= form_for @world, html: { class: ['ui', 'form', ('error' if @world.errors.any?)] } do |f| %>
+  <%= content_tag :div, class: ['field', ('error' if @world.errors[:name].any?)] do %>
+    <%= f.text_field :name, placeholder: 'Name' %>
+  <% end %>
+
+  <%= content_tag :div, class: ['field', ('error' if @world.errors[:description].any?)] do %>
+    <%= f.text_area :description, placeholder: 'Description' %>
+  <% end %>
+
+  <% if @world.errors.any? %>
+    <div class="ui error message">
+      <ul class="list">
+        <% @world.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.submit class: 'ui right floated green button' %>
+<% end %>

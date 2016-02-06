@@ -1,3 +1,10 @@
 <div class="ui secondary pointing menu">
-  <%= link_to 'Logout', session_path(current_user.id), method: 'delete', class: ['item', ('active' if current_page?(about_path))] %>
+  <%= link_to new_world_path, class: ['item', ('active' if current_page?(new_world_path) || (controller_name == 'worlds' && action_name == 'create'))] do %>
+    <i class="big world icon"></i>
+    <%= t('.worlds') %>
+  <% end %>
+
+  <div class="right menu">
+    <%= link_to 'Logout', session_path(current_user.id), method: 'delete', class: ['item', ('active' if current_page?(about_path))] %>
+  </div>
 </div>
