@@ -1,8 +1,11 @@
 AllCops:
   Exclude:
+    - 'bin/**/*'
     - 'config/application.rb'
     - 'db/**/*'
-    - 'bin/**/*'
+    - 'spec/*_helper.rb'
   TargetRubyVersion: 2.3
 Metrics/LineLength:
   Max: 120
+Style/FrozenStringLiteralComment:
+  Enabled: false

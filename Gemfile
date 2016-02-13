@@ -17,6 +17,12 @@ gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'fabrication'
+  gem 'guard-rspec', require: false
+  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-nc'
 end
 
 group :development do
