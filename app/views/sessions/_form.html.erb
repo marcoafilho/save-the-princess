@@ -1,25 +1,25 @@
-<%= form_tag sessions_path, class: ['ui', 'form', ('error' if @session_errors.present?)] do |f| %>
-  <div class="field">
-    <%= email_field_tag :email, params[:email], placeholder: 'E-mail' %>
-  </div>
+<%= form_tag sessions_path do |f| %>
+  <fieldset class="form-group">
+    <%= email_field_tag :email, params[:email], placeholder: 'E-mail', class: 'form-control' %>
+  </fieldset>
 
-  <div class="fields">
-    <div class="twelve wide field">
-      <%= password_field_tag :password, nil, placeholder: 'Password' %>
-    </div>
+  <fieldset class="form-group">
+    <div class="row">
+      <div class="col-md-8">
+        <%= password_field_tag :password, nil, placeholder: 'Password', class: 'form-control' %>
+      </div>
 
-    <div class="four wide field">
-      <%= submit_tag 'Sign in', class: 'ui fluid blue button' %>
+      <div class="col-md-4">
+        <%= submit_tag 'Sign in', class: 'btn btn-primary btn-block' %>
+      </div>
     </div>
-  </div>
+  </fieldset>
 
   <% if @session_errors.present? %>
-    <div class="ui error message">
-      <ul class="list">
-        <% @session_errors.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul>
+      <% @session_errors.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
 <% end %>

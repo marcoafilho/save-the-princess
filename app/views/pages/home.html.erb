@@ -1,6 +1,6 @@
-<div class="ui centered grid container">
-  <div class="doubling two column row">
-    <div class="column">
+<div class="container">
+  <div class="row p-t-1">
+    <div class="col-sm-6">
       <h1>The princess has gone missing!</h1>
 
       <p>
@@ -18,14 +18,18 @@
       </p>
     </div>
 
-    <div class="column">
-      <div class="ui segment">
-        <%= render 'sessions/form' %>
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-block">
+          <%= render 'sessions/form' %>
+        </div>
       </div>
 
-      <div class="ui clearing segment">
-        <h2>New to save the princess? Sign up!</h2>
-        <%= render 'users/form' %>
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">New to save the princess?</h4>
+          <%= render 'users/form' %>
+        </div>
       </div>
     </div>
   </div>

@@ -1,25 +1,23 @@
-<%= form_for @user, html: { class: ['ui', 'form', ('error' if @user.errors.any?)] } do |f| %>
-  <%= content_tag :div, class: ['field', ('error' if @user.errors[:name].any?)] do %>
-    <%= f.text_field :name, placeholder: 'Name' %>
+<%= form_for @user do |f| %>
+  <%= content_tag :fieldset, class: ['form-group', ('has-danger' if f.object.errors[:name].any?)] do %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Name' %>
   <% end %>
 
-  <%= content_tag :div, class: ['field', ('error' if @user.errors[:email].any?)] do %>
-    <%= f.email_field :email, placeholder: 'E-mail' %>
+  <%= content_tag :fieldset, class: ['form-group', ('has-danger' if f.object.errors[:email].any?)] do %>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'E-mail' %>
   <% end %>
 
-  <%= content_tag :div, class: ['field', ('error' if @user.errors[:password].any?)] do %>
-    <%= f.password_field :password, placeholder: 'Password' %>
+  <%= content_tag :fieldset, class: ['form-group', ('has-danger' if f.object.errors[:password].any?)] do %>
+    <%= f.password_field :password, class: 'form-control', placeholder: 'Password' %>
   <% end %>
 
   <% if @user.errors.any? %>
-    <div class="ui error message">
-      <ul class="list">
-        <% @user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
+    <ul class="list">
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
   <% end %>
 
-  <%= f.submit 'Sign up', class: 'ui right floated green button' %>
+  <%= f.submit 'Sign up', class: 'btn btn-success' %>
 <% end %>

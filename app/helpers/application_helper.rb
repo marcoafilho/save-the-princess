@@ -2,7 +2,7 @@
 # the page.
 module ApplicationHelper
   def flash_class(key)
-    { notice: 'positive', alert: 'negative' }[key.to_sym]
+    { notice: 'alert-success', alert: 'alert-danger' }[key.to_sym]
   end
 
   def root_path?
