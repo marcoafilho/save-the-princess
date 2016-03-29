@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require semantic-ui
+//= require tether
+//= require bootstrap
 //= require_tree .

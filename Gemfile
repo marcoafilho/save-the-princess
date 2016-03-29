@@ -6,13 +6,14 @@ gem 'rails', '4.2.6'
 gem 'pg', '~> 0.15'
 
 gem 'bcrypt', '~> 3.1.7'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'font-awesome-sass', '~> 4.5.0'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'nokogiri'
 gem 'rubocop'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'semantic-ui-sass'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 
@@ -29,4 +30,8 @@ end
 group :development do
   gem 'spring'
   gem 'web-console', '~> 2.0'
+end
+
+source 'https://rails-assets.tenex.tech' do
+  gem 'rails-assets-tether'
 end
