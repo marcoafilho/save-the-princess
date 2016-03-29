@@ -8,6 +8,7 @@ gem 'pg', '~> 0.15'
 gem 'bcrypt', '~> 3.1.7'
 gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
+gem 'nokogiri'
 gem 'rubocop'
 gem 'sass-rails', '~> 5.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
