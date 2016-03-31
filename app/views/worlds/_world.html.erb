@@ -1,0 +1,23 @@
+<div class="world card">
+  <div class="world-img-container">
+    <%= image_tag world.map_path, class: 'card-img-top' %>
+  </div>
+  <div class="card-block">
+    <h4 class="card-title"><%= link_to world.name, world_path(world) %></h4>
+
+    <p class="card-text">
+      <%= image_tag world.user.avatar_url, class: 'avatar' %>
+      <small>Created by <%= link_to world.user, '#' %></small>
+    </p>
+
+    <p class="card-text">
+      <%= world.description %>
+    </p>
+  </div>
+  <div class="card-footer text-xs-right">
+    <div class="btn btn-sm btn-primary">
+      <%= icon('play') %>
+      Play
+    </div>
+  </div>
+</div>

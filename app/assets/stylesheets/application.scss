@@ -1,3 +1,51 @@
+$enable-flex: true;
+
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+.nav-title {
+  margin: 0;
+}
+
+.world-img-container {
+  border-radius: $border-radius $border-radius 0 0;
+  max-height: 5.5rem;
+  overflow: hidden;
+
+  img {
+    margin-top: -30%;
+    width: 100%;
+  }
+}
+
+.world-toolbox {
+  align-self: flex-end;
+}
+
+.avatar {
+  border-radius: $border-radius;
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+@if $enable-flex {
+  .card-deck {
+    display: flex;
+    flex-flow: row wrap;
+    margin-right: -.625rem;
+    margin-left: -.625rem;
+
+    .card {
+      display: flex;
+      flex: 1 0 0;
+      flex-direction: column;
+      margin-right: .625rem;
+      margin-left: .625rem;
+
+      .card-block {
+        flex-grow: 1;
+      }
+    }
+  }
+}

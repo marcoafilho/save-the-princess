@@ -1,0 +1,21 @@
+<div class="container p-t-1">
+  <h2 class="nav-title pull-xs-left">Worlds</h2>
+  <ul class="nav nav-tabs">
+    <li class="nav-item pull-xs-right">
+      <%= link_to user_worlds_path(current_user.name), class: "nav-link #{'active' if params[:user_id] == current_user.name}" do %>
+        <%= icon('user') %>
+        By me
+      <% end %>
+    </li>
+    <li class="nav-item pull-xs-right">
+      <%= link_to worlds_path, class: "nav-link #{'active' if params[:user_id] != current_user.name}" do %>
+        <%= icon('globe') %>
+        Community
+      <% end %>
+    </li>
+  </ul>
+
+  <div class="card-deck-wrapper p-t-1">
+    <%= render_deck(@worlds) %>
+  </div>
+</div>
