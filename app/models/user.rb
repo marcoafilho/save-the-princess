@@ -7,4 +7,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true, format: { with: /\A.+@.+\z/ }
   validates :password, length: { minimum: 6 }
+
+  def avatar_url
+    "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email)}"
+  end
+
+  def to_param
+    name
+  end
+
+  def to_s
+    name
+  end
 end

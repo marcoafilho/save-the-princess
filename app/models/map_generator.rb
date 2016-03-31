@@ -3,7 +3,7 @@ require 'open-uri'
 # Access a Web Service that generates random maps
 #
 # Usage:
-#   MapGenerator.new.save
+#   MapGenerator.create
 #
 # This will create a file in public/maps/m/500x500/#{random_number}.png
 # By default, the map will be a 500x500 pixels Mercator map with a Lefebvre2
@@ -20,6 +20,10 @@ class MapGenerator
   def initialize(attributes = {})
     initialize_attributes(attributes)
     initialize_seed
+  end
+
+  def self.create(attributes = {})
+    new(attributes).tap(&:save)
   end
 
   def save
