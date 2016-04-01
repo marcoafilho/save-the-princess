@@ -26,9 +26,6 @@ ActiveRecord::Schema.define(version: 20160206213808) do
     t.datetime "updated_at",                      null: false
   end
 
-  add_index "accounts", ["email"], name: "index_accounts_on_email", using: :btree
-  add_index "accounts", ["username"], name: "index_accounts_on_username", using: :btree
-
   create_table "locations", force: :cascade do |t|
     t.integer  "world_id",    null: false
     t.string   "name"

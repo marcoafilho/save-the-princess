@@ -2,13 +2,13 @@
   <h2 class="nav-title pull-xs-left">Worlds</h2>
   <ul class="nav nav-tabs">
     <li class="nav-item pull-xs-right">
-      <%= link_to account_worlds_path(current_account.username), class: "nav-link #{'active' if params[:account_id] == current_account.to_param}" do %>
+      <%= link_to account_worlds_path(current_account.username), class: "nav-link #{'active' if params[:username] == current_account.to_param}" do %>
         <%= icon('account') %>
         By me
       <% end %>
     </li>
     <li class="nav-item pull-xs-right">
-      <%= link_to worlds_path, class: "nav-link #{'active' if params[:account_id] != current_account.to_param}" do %>
+      <%= link_to worlds_path, class: "nav-link #{'active' if params[:username] != current_account.to_param}" do %>
         <%= icon('globe') %>
         Community
       <% end %>
