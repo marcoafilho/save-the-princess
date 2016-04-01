@@ -1,6 +1,6 @@
 # `MapsController` handles the generation of random maps
 class MapsController < ApplicationController
-  before_action :authorize_user
+  before_action :authorize_account
 
   def show
     map = MapGenerator.new

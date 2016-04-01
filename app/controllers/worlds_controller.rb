@@ -1,10 +1,10 @@
 # `WorldsController` handles worlds objects
 class WorldsController < ApplicationController
-  before_action :authorize_user
+  before_action :authorize_account
   before_action :set_world, only: [:edit, :update, :destroy]
 
   def index
-    @worlds = World.includes(:user).owner(params[:user_id])
+    @worlds = World.includes(:account).owner(params[:account_id])
   end
 
   def show
@@ -12,14 +12,14 @@ class WorldsController < ApplicationController
   end
 
   def new
-    @world = current_user.worlds.new
+    @world = current_account.worlds.new
   end
 
   def edit
   end
 
   def create
-    @world = current_user.worlds.new(world_params)
+    @world = current_account.worlds.new(world_params)
     @world.map_path = MapGenerator.create.relative_path
     if @world.save
       redirect_to @world, notice: 'Successfully created world!'
@@ -50,6 +50,6 @@ class WorldsController < ApplicationController
   end
 
   def set_world
-    @world = current_user.worlds.find(params[:id])
+    @world = current_account.worlds.find(params[:id])
   end
 end

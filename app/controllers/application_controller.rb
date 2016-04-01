@@ -3,13 +3,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  def current_user
-    @current_user ||= User.find_by(id: session[:user_id])
+  def current_account
+    @current_account ||= Account.find_by(id: session[:account_id])
   end
-  helper_method :current_user
+  helper_method :current_account
 
-  def authorize_user
-    return if current_user.present?
+  def authorize_account
+    return if current_account.present?
     redirect_to root_path, alert: 'Must be logged in to access this feature'
   end
 end

@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160330214845) do
+ActiveRecord::Schema.define(version: 20160206213808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "accounts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "username",                        null: false
+    t.string   "email",                           null: false
+    t.string   "password_digest",                 null: false
+    t.boolean  "admin",           default: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+  end
+
+  add_index "accounts", ["email"], name: "index_accounts_on_email", using: :btree
+  add_index "accounts", ["username"], name: "index_accounts_on_username", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.integer  "world_id",    null: false
@@ -27,30 +40,19 @@ ActiveRecord::Schema.define(version: 20160330214845) do
   end
 
   add_index "locations", ["name"], name: "index_locations_on_name", using: :btree
-  add_index "locations", ["world_id", "name", "latitude", "longitude"], name: "index_locations_on_world_id_and_name_and_latitude_and_longitude", unique: true, using: :btree
+  add_index "locations", ["world_id", "latitude", "longitude"], name: "index_locations_on_world_id_and_latitude_and_longitude", unique: true, using: :btree
   add_index "locations", ["world_id"], name: "index_locations_on_world_id", using: :btree
 
-  create_table "users", force: :cascade do |t|
-    t.string   "name",                            null: false
-    t.string   "email",                           null: false
-    t.string   "password_digest",                 null: false
-    t.boolean  "admin",           default: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-  end
-
-  add_index "users", ["email"], name: "index_users_on_email", using: :btree
-
   create_table "worlds", force: :cascade do |t|
-    t.integer  "user_id",     null: false
+    t.integer  "account_id",  null: false
     t.string   "name",        null: false
     t.text     "description"
+    t.string   "map_path",    null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.string   "map_path"
   end
 
+  add_index "worlds", ["account_id", "name"], name: "index_worlds_on_account_id_and_name", unique: true, using: :btree
   add_index "worlds", ["name"], name: "index_worlds_on_name", using: :btree
-  add_index "worlds", ["user_id", "name"], name: "index_worlds_on_user_id_and_name", unique: true, using: :btree
 
 end

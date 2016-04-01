@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   end
 
   def home
-    @user = User.new
+    @account = Account.new
   end
 end
