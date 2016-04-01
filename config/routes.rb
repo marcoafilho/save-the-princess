@@ -3,14 +3,14 @@ Rails.application.routes.draw do
 
   resources :locations, only: [:new, :create]
   resources :sessions, only: [:create, :destroy]
-  resources :users, only: :create do
+  resources :accounts, only: :create do
     resources :worlds, only: :index
   end
   resources :worlds
 
   get 'about', to: 'pages#about'
 
-  constraints -> (request) { request.session[:user_id].present? } do
+  constraints -> (request) { request.session[:account_id].present? } do
     root to: 'worlds#new', as: :authenticated_root
   end
   root to: 'pages#home'

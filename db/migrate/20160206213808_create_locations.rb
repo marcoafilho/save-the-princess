@@ -10,6 +10,6 @@ class CreateLocations < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :locations, [:world_id, :name, :latitude, :longitude], unique: true
+    add_index :locations, [:world_id, :latitude, :longitude], unique: true
   end
 end

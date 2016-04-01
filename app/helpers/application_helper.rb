@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def root_path?
     current_page?(root_path) ||
-      (controller_name == 'users' && action_name == 'create') ||
+      (controller_name == 'accounts' && action_name == 'create') ||
       (controller_name == 'sessions' && action_name == 'create')
   end
 

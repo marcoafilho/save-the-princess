@@ -1,6 +1,6 @@
 <%= form_tag sessions_path do |f| %>
   <fieldset class="form-group">
-    <%= email_field_tag :email, params[:email], placeholder: 'E-mail', class: 'form-control' %>
+    <%= text_field_tag :credential, params[:credential], placeholder: 'E-mail or username', class: 'form-control' %>
   </fieldset>
 
   <fieldset class="form-group">

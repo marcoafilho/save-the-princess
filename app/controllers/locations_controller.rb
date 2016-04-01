@@ -1,6 +1,6 @@
 # `LocationsController` handles the location object
 class LocationsController < ApplicationController
-  before_action :authorize_user
+  before_action :authorize_account
 
   def new
     @location = Location.new(world_id: params[:world_id])
