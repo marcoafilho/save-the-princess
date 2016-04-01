@@ -1,8 +1,36 @@
-<div class="ui container grid">
-  <div class="row">
-    <div class="one column">
-      <%= @world.name %>
-      <%= link_to 'New location', new_location_path(world_id: @world.id), class: 'ui green button' %>
+<div class="container p-t-1">
+  <h1>
+    <%= @world.name %>
+  </h1>
+  <p>
+    <%= @world.description %>
+    <% if @world.owner?(current_account) %>
+      – <%= link_to 'Edit', edit_world_path(@world) %>
+    <% end %>
+  </p>
+  <div>
+    <%= link_to 'New location', new_location_path(world_id: @world.id), class: 'btn btn-sm btn-secondary' %>
+  </div>
+
+  <div class="row p-t-1">
+    <div class="col-md-3">
+      <% if @world.locations.any? %>
+        <div class="card">
+          <div class="card-header">
+            Locations
+          </div>
+          <div class="list-group list-group-flush">
+            <% @world.locations.each do |location| %>
+              <button type="button" href="#" class="list-group-item">
+                <%= location.name %>
+              </button>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-9">
+      <%= image_tag @world.map_path, class: 'img-fluid world-map-img' %>
     </div>
   </div>
 </div>
