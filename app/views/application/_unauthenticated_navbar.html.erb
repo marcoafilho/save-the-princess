@@ -1,12 +1,15 @@
 <nav class="navbar navbar-light bg-faded">
-  <ul class="nav navbar-nav">
-    <%= content_tag :li, class: ['nav-item', ('active' if current_page?(root_path))] do %>
-      <%= link_to root_path, class: 'nav-link' do %>
-        <%= t('.home') %>
+  <div class="container">
+    <%= brand_tag %>
+    <ul class="nav navbar-nav">
+      <%= content_tag :li, class: ['nav-item', ('active' if current_page?(root_path))] do %>
+        <%= link_to root_path, class: 'nav-link' do %>
+          <%= t('.home') %>
+        <% end %>
       <% end %>
-    <% end %>
-    <%= content_tag :li, class: ['nav-item', ('active' if current_page?(about_path))] do %>
-      <%= link_to t('.about'), about_path, class: 'nav-link' %>
-    <% end %>
-  </ul>
+      <%= content_tag :li, class: ['nav-item', ('active' if current_page?(about_path))] do %>
+        <%= link_to t('.about'), about_path, class: 'nav-link' %>
+      <% end %>
+    </ul>
+  </div>
 </nav>
