@@ -4,7 +4,7 @@ class WorldsController < ApplicationController
   before_action :set_world, only: [:edit, :update, :destroy]
 
   def index
-    @worlds = World.includes(:account).owner(params[:account_id])
+    @worlds = World.includes(:account).owner(params[:username])
   end
 
   def show

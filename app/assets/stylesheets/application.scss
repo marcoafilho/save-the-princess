@@ -8,6 +8,10 @@ $enable-flex: true;
   margin: 0;
 }
 
+.world-map-img {
+  width: 100%;
+}
+
 .world-img-container {
   border-radius: $border-radius $border-radius 0 0;
   max-height: 5.5rem;
