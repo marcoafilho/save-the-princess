@@ -1,6 +1,12 @@
 # `ApplicationHelper` provides methods that helps presenting some content on
 # the page.
 module ApplicationHelper
+  def brand_tag
+    link_to(root_path, class: 'navbar-brand') do
+      content_tag(:i, nil, class: 'fi fi-people')
+    end
+  end
+
   def flash_class(key)
     { notice: 'alert-success', alert: 'alert-danger' }[key.to_sym]
   end
