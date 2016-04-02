@@ -1,7 +1,12 @@
 <% flash.each do |key, message| %>
   <div id="flash">
     <%= content_tag :div, class: ['alert', flash_class(key), 'message'] do %>
-      <%= message %>
+      <div class="container">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <%= message %>
+      </div>
     <% end %>
   </div>
 <% end %>
