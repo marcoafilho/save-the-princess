@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resource :map, only: :show
 
   resources :accounts, only: %i(edit create update)
-  resources :worlds
-  resources :locations, only: %i(new create)
+  resources :worlds do
+    resources :locations, only: :new
+  end
+  resources :locations, only: :create
 
   scope '(:username)', as: :account do
     resources :worlds

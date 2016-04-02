@@ -13,4 +13,8 @@ class World < ActiveRecord::Base
   def owner?(object)
     object == account
   end
+
+  def to_s
+    name
+  end
 end
