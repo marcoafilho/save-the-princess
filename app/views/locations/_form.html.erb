@@ -1,31 +1,46 @@
 <%= form_for @location, html: { class: ['ui', 'form', ('error' if @location.errors.any?)] } do |f| %>
   <%= f.hidden_field :world_id %>
+  <%= f.hidden_field :latitude, class: 'form-control', placeholder: 'Latitude' %>
+  <%= f.hidden_field :longitude, class: 'form-control', placeholder: 'Longitude' %>
 
-  <%= content_tag :div, class: ['field', ('error' if @location.errors[:name].any?)] do %>
-    <%= f.text_field :name, placeholder: 'Name' %>
-  <% end %>
+  <%= link_to @location.world, @location.world %>
+  /
+  <span class="form-inline">
+    <%= f.text_field :name, class: 'form-control form-control-sm', placeholder: 'Name' %>
+  </span>
+  or
+  <%= link_to 'cancel', :back %>
 
-  <%= content_tag :div, class: ['field', ('error' if @location.errors[:latitude].any?)] do %>
-    <%= f.text_field :latitude, placeholder: 'Latitude' %>
-  <% end %>
+  <div class="alert alert-info m-t-1">
+    Click on the map below to use it as coordinates for your location.
+  </div>
 
-  <%= content_tag :div, class: ['field', ('error' if @location.errors[:longitude].any?)] do %>
-    <%= f.text_field :longitude, placeholder: 'Longitude' %>
-  <% end %>
-
-  <%= content_tag :div, class: ['field', ('error' if @location.errors[:description].any?)] do %>
-    <%= f.text_area :description, placeholder: 'Description' %>
-  <% end %>
-
-  <% if @location.errors.any? %>
-    <div class="ui error message">
-      <ul class="list">
-        <% @location.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+  <div class="card m-t-1">
+    <div class="card-header">
+      <%= @location.new_record? ? 'New Location' : 'Edit Location' %>
+      <small class="pull-xs-right text-muted location-coordinates">
+        (0, 0)
+      </small>
     </div>
-  <% end %>
 
-  <%= f.submit class: 'ui right floated green button' %>
+    <div class="planet">
+      <%= image_tag @location.world.map_path, class: 'world-map-img' %>
+    </div>
+
+    <div class="card-block">
+      <%= content_tag :fieldset, class: ['form-group', ('error' if @location.errors[:description].any?)] do %>
+        <%= f.text_area :description, class: 'form-control', placeholder: 'Description' %>
+      <% end %>
+
+      <% if @location.errors.any? %>
+        <ul>
+          <% @location.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= f.submit class: 'btn btn-success' %>
+    </div>
+  </div>
 <% end %>
