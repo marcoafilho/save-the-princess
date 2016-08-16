@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.0'
 
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7.1'
 gem 'pg', '~> 0.15'
 
 gem 'bcrypt', '~> 3.1.7'
@@ -32,6 +32,6 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
-source 'https://rails-assets.tenex.tech' do
+source 'https://rails-assets.org' do
   gem 'rails-assets-tether'
 end
